@@ -6,6 +6,12 @@ def read_file():
         coffee = list(reader)
         return coffee
 
+def write_row();
+    with open('Database/CoffeeList.csv', 'a') as csvfile:
+        fieldnames = ['Brand', 'Make', 'Roast', 'GrindSize', 'GrindAmount', 'Rating']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writerow({'Brand': 'ThirdBrand', 'Make': 'ThirdMake', 'Roast': 'ThirdRoast', 'GrindSize': 7, 'GrindAmount': '3 oclock', 'Rating': 'Gross'})
+
 def find_helper(coffee_list, key_name, key_value):
     matches = [row for row in all_coffee if row[key_name] == key_value]
     return matches
@@ -29,8 +35,3 @@ test_make = find_by_make(all_coffee, 'SomeMake')
 
 for row in test_make:
     print(row)
-
-with open('Database/CoffeeList.csv', 'a') as csvfile:
-    fieldnames = ['Brand', 'Make', 'Roast', 'GrindSize', 'GrindAmount', 'Rating']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    writer.writerow({'Brand': 'ThirdBrand', 'Make': 'ThirdMake', 'Roast': 'ThirdRoast', 'GrindSize': 7, 'GrindAmount': '3 oclock', 'Rating': 'Gross'})
